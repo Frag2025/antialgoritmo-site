@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(benefit);
     });
     
+    // Animação para a foto do Léo
+    const leoPhoto = document.querySelector('.leo-photo img');
+    if (leoPhoto) {
+        leoPhoto.style.opacity = '0';
+        leoPhoto.style.transform = 'scale(0.9)';
+        leoPhoto.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(leoPhoto);
+    }
+    
     // Destacar link ativo na navegação
     const sections = document.querySelectorAll('section[id]');
     const navMenuLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
@@ -156,13 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createMobileMenu();
     window.addEventListener('resize', createMobileMenu);
     
-    // Adicionar efeito de parallax sutil ao hero
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
+    // REMOVIDO: Efeito parallax que estava causando problemas de sobreposição
+    // O efeito parallax foi removido para corrigir o problema de layout
 });
 
